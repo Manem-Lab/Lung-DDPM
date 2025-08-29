@@ -2,7 +2,8 @@
 # Lung-DDPM: Semantic Layout-guided Diffusion Models for Thoracic CT Image Synthesis
 
 ## News
-We’re excited to introduce **[Lung-DDPM+](https://github.com/Manem-Lab/Lung-DDPM-PLUS)**, achieving **8× fewer FLOPs**, **6.8× lower GPU memory**, and **14× faster sampling** than Lung-DDPM.
+- We’re excited to introduce **[Lung-DDPM+](https://github.com/Manem-Lab/Lung-DDPM-PLUS)**, achieving **8× fewer FLOPs**, **6.8× lower GPU memory**, and **14× faster sampling** than Lung-DDPM.
+- Lung-DDPM is accepted by **IEEE Transactions on Biomedical Engineering**, **[Early Access Acticle](https://ieeexplore.ieee.org/document/11124548)**.
 
 <img src="materials/fig1.png" alt="drawing" width="75%"/>
 
