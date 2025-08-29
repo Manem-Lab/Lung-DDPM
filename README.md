@@ -1,9 +1,12 @@
 <!-- #region -->
 # Lung-DDPM: Semantic Layout-guided Diffusion Models for Thoracic CT Image Synthesis
 
+## News
+We’re excited to introduce **[Lung-DDPM+](https://github.com/Manem-Lab/Lung-DDPM-PLUS)**, achieving **8× fewer FLOPs**, **6.8× lower GPU memory**, and **14× faster sampling** than Lung-DDPM.
+
 <img src="materials/fig1.png" alt="drawing" width="75%"/>
 
-[[Preprint article](https://www.arxiv.org/abs/2502.15204)] [[Dataset & Pretrained models](https://drive.google.com/drive/folders/1IiWUsGyU-4aNN6-PscrcWijBNdjH9Qhz?usp=sharing)][[Poster](materials/poster.pdf)]
+[[IEEE TBME paper](https://ieeexplore.ieee.org/document/11124548)][[Preprint article](https://www.arxiv.org/abs/2502.15204)] [[Dataset & Pretrained models](https://drive.google.com/drive/folders/1IiWUsGyU-4aNN6-PscrcWijBNdjH9Qhz?usp=sharing)][[Poster](materials/poster.pdf)]
 
 ## Abstract
 Pulmonary diseases, particularly lung cancer, have become major challenges for public health. Thoracic computed tomography (CT) plays a vital role in the early detection of lung cancer. With the rapid development of artificial intelligence (AI), AI-assisted medical imaging analysis has emerged, demonstrating remarkable performance across diverse medical applications. However, the costly annotation process and privacy concerns limit the construction of large-scale medical datasets, hampering the further application of AI in healthcare. To address the data scarcity in medical imaging, we propose Lung-DDPM, a thoracic CT image synthesis approach that effectively generates high-fidelity 3D synthetic CT images. These images prove helpful in downstream lung nodule segmentation tasks. Our method is based on semantic layout-guided denoising diffusion probabilistic models (DDPM), enabling anatomically reasonable, seamless, and consistent sample generation even from incomplete semantic layouts. Our results suggest that the proposed method outperforms other state-of-the-art (SOTA) generative models in image quality evaluation and downstream lung nodule segmentation tasks. Specifically, Lung-DDPM achieved superior performance on our large validation cohort, with a Fréchet inception distance (FID) of 0.0047, maximum mean discrepancy (MMD) of 0.0070, and mean squared error (MSE) of 0.0024. These results were 7.4×, 3.1×, and 29.5× better than the second-best competitors, respectively. Furthermore, the lung nodule segmentation model, trained on a dataset combining real and Lung-DDPM-generated synthetic samples, attained a dice coefficient (Dice) of 0.3914 and sensitivity of 0.4393. This represents 8.8% and 18.6% improvements in DICE and sensitivity compared to the model trained solely on real samples. The experimental results highlight Lung-DDPM’s potential for a broader range of medical imaging applications, such as general tumor segmentation, caner survival estimation and risk prediction.
@@ -126,14 +129,6 @@ python train.py --ct_path "data/LIDC-IDRI/CT" --mask_path "data/LIDC-IDRI/SEG" -
 python sample.py --ct_path "data/LIDC-IDRI/CT" --mask_path "data/LIDC-IDRI/SEG" --sample_path "data/LIDC-IDRI/SAMPLE" --vis_path "data/LIDC-IDRI/VIS" --input_size 128 --depth_size 128 --num_class_labels 3 --num_channels 64 --num_res_blocks 1 --timesteps 250 --batchsize 1 --num_samples 1 --num_class_labels 3 --timesteps 250 --weightfile "checkpoints/Lung-DDPM-LIDC-IDRI-100000-steps.pt" --blend_from 250
 ```
 After the sampling process done, the sampling results will be available at 'sample_path' and the visualization results will be available at the 'vis_path'.
-
-## To-do list
-- [x] Release training and sampling code.
-- [x] Release pretrained models.
-- [x] Release the LIDC-IDRI patient list.
-- [ ] A synthetic dataset based on LIDC-IDRI.
-- [ ] HuggingFace online demo.
-- [ ] Lung-DDPM+: we are working on an efficient version of Lung-DDPM. The code will be available soon. Stay tuned!
 
 ## Citation
 If Lung-DDPM contributes to your research, please cite as follows:
